@@ -33,6 +33,7 @@ const Home: NextPage = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5} mt={6}>
           {isLoading ? (
             <>
+              {/* @ts-ignore */}
               {[...Array(10).keys()].map((item) => (
                 <Skeleton borderRadius={["sm", null, "md"]} key={item} height="400px" />
               ))}
