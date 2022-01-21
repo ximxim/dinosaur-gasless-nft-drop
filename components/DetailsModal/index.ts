@@ -1,0 +1,1 @@
+export { DetailsModal } from './DetailsModal';
