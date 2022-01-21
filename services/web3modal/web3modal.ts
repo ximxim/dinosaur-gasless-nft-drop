@@ -68,9 +68,6 @@ export class Web3Modal {
 
   public async checkAndSwitchChain(): Promise<boolean> {
     try {
-      const [wallet] = this.getWalletProvider();
-      if (wallet === 'magicLink') return true;
-
       await this.ethers?.provider.request?.({
         method: "wallet_addEthereumChain",
         params: [
