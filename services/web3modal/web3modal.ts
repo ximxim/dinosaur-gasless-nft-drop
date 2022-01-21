@@ -21,24 +21,24 @@ export class Web3Modal {
   public ethers?: ethers.providers.Web3Provider;
 
   constructor() {
-    this.web3Modal = new Web3ModalLib({
-      network,
-      cacheProvider: true,
-      providerOptions: {
-        walletconnect: {
-          package: WalletConnectProvider,
-          options: {
-            infuraId,
-            rpc: { [chainId]: rpcUrl },
-          },
-        },
+this.web3Modal = new Web3ModalLib({
+  network,
+  cacheProvider: true,
+  providerOptions: {
+    walletconnect: {
+      package: WalletConnectProvider,
+      options: {
+        infuraId,
+        rpc: { [chainId]: rpcUrl },
       },
-    });
+    },
+  },
+});
   }
 
-  public async connect(wallet?: string) {
+  public async connect() {
     try {
-      const provider = await (wallet ? this.web3Modal.connectTo(wallet!) : this.web3Modal.connect());
+      const provider = await this.web3Modal.connect();
       this.ethers = new ethers.providers.Web3Provider(provider as any, 'any');
       return true;
     } catch (ex) {
